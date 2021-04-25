@@ -10,10 +10,25 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.tagercito.coderunnerintellijplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.tagercito.coderunnerintellijplugin.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.github.tagercito.coderunnerintellijplugin.CodeRunnerPluginSettings"/>
     </extensions>
 
     <applicationListeners>
         <listener class="com.github.tagercito.coderunnerintellijplugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <actions>
+        <group id="TestDemo.Actions" text="Moodle Code Runner" description="esta es la descripcion">
+            <action id="your.action.id" class="com.github.tagercito.coderunnerintellijplugin.RunTests"
+                    text="Run CodeRunner Tests" description="Action description" icon="pluginIcon.svg">
+                <add-to-group group-id="ToolbarRunGroup" anchor="first" />
+            </action>
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action class="com.github.tagercito.coderunnerintellijplugin.LoginAction" id="TestDemo.Actions.LoginAction" text="Login"/>
+            <action class="com.github.tagercito.coderunnerintellijplugin.GetQuizzes" id="TestDemo.Actions.GetQuizzes" text="Get Quizzes"/>
+
+
+        </group>
+
+    </actions>
 </idea-plugin>
